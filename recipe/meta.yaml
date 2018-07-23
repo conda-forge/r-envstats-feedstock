@@ -27,11 +27,13 @@ requirements:
     - r-base
     - r-mass
     - r-ggplot2
+    - r-nortest
 
   run:
     - r-base
     - r-mass
     - r-ggplot2
+    - r-nortest
 
 test:
   commands:
