@@ -1,8 +1,8 @@
-{% set version = "2.3.1" %}
+{% set version = "2.4.0" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
-{% set sha256 = "d753d42b42ff28c1cd25c63916fb2aa9e325941672fb16f7dfd97e218416cf2a" %}
+{% set sha256 = "49459e76412037b3d8021bd83ee93d140bc3e715a2a2282a347ef60061900514" %}
 
 package:
   name: r-envstats
@@ -17,7 +17,7 @@ source:
 
 build:
   noarch: generic
-  number: 1002
+  number: 0
 
   rpaths:
     - lib/R/lib/
