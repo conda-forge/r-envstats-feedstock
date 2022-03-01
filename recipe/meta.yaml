@@ -1,8 +1,8 @@
-{% set version = "2.5.0" %}
+{% set version = "2.6.0" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
-{% set sha256 = "4f77aa66c9dbbe411370a6dd5b9e514823d5506bbcdad9dc09a9e4268d65a7f7" %}
+{% set sha256 = "c1e790b987265e1607046b3f53266ccc0c0c1218240b801c5e27af51f4c3ffbd" %}
 
 package:
   name: r-envstats
