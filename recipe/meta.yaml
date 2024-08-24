@@ -53,4 +53,5 @@ about:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 extra:
   recipe-maintainers:
+    - conda-forge/r
     - jentjr
