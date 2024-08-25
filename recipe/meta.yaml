@@ -1,23 +1,19 @@
-{% set version = "2.8.1" %}
-
+{% set version = "3.0.0" %}
 {% set posix = 'm2-' if win else '' %}
-{% set sha256 = "12952b9eaa64b7bdbaaa5c6b7acb3aa1028ddfa4e5de7ddfea54f900c452d6a6" %}
 
 package:
   name: r-envstats
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: EnvStats_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/EnvStats_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/EnvStats/EnvStats_{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+    - {{ cran_mirror }}/src/contrib/EnvStats_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/EnvStats/EnvStats_{{ version }}.tar.gz
+  sha256: 0413ec3d44b3251549a254b4afd76f520aaacd5374b463a5813e23e1fa8cd248
 
 build:
   noarch: generic
-  number: 1
-
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -28,7 +24,6 @@ requirements:
     - r-mass
     - r-ggplot2
     - r-nortest
-
   run:
     - r-base
     - r-mass
@@ -37,20 +32,21 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('EnvStats')"  # [not win]
+    - $R -e "library('EnvStats')"           # [not win]
     - "\"%R%\" -e \"library('EnvStats')\""  # [win]
 
 about:
-  home: https://www.probstatinfo.com
+  home:  https://alexkowa.github.io/EnvStats/
+  dev_url: https://github.com/alexkowa/EnvStats
   license: GPL-3.0-or-later
   summary: >
     Graphical and statistical analyses of environmental data, with  focus on analyzing chemical concentrations and physical parameters, usually in  the context of mandated environmental monitoring.  Major environmental  statistical methods found in the literature and regulatory guidance documents,  with extensive help that
     explains what these methods do, how to use them,  and where to find them in the literature.  Numerous built-in data sets from  regulatory guidance documents and environmental statistics literature.  Includes  scripts reproducing analyses presented in the book "EnvStats: An R Package for  Environmental Statistics" (Millard,
     2013, Springer, ISBN 978-1-4614-8455-4,  <http://www.springer.com/book/9781461484554>).
   license_family: GPL3
-
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+
 extra:
   recipe-maintainers:
     - conda-forge/r
